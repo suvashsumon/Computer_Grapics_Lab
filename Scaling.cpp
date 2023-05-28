@@ -13,8 +13,8 @@ int main()
 	floodfill(1, 1, WHITE);
 	
 	// line properties
-    int x1 = 70, y1 = 70;
-    int x2 = 70, y2 = 100;
+    int x1 = 50, y1 = 50;
+    int x2 = 300, y2 = 100;
     
     cout << "Original Length : " << sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)) << endl;
     
@@ -26,7 +26,7 @@ int main()
     int xf = 70, yf = 70;
     
     // scaling factors
-    int sx = 2, sy = 2;
+    int sx = 2, sy = 1;
     
     // perform scaling
     int xss1 = x1*sx + xf*(1-sx);
@@ -36,7 +36,7 @@ int main()
     
     // draw the rotated line
     setcolor(RED);
-    line(xss1, yss2, xss2, yss2);
+    line(x1*sx, y1*sy, x2*sx, y2*sy);
     
     cout << "After Rotation Length : "<< sqrt((xss1-xss2)*(xss1-xss2)+(yss1-yss2)*(yss1-yss2)) << endl;
 
