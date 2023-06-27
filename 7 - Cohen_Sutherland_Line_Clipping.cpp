@@ -50,7 +50,7 @@ void cohenSutherland(int x1, int y1, int x2, int y2)
             accept = true;
             break;
         }
-        else if (code1 & code2) // Fully outside the window
+        else if (code1 & code2) // Fully outside the window and we ignore this line
         {
             break;
         }
