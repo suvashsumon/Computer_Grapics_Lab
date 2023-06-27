@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include<graphics.h>
 #include <cmath>
+using namespace std;
 
 // Definitions for the region codes
 const int INSIDE = 0; // 0000
@@ -99,7 +100,7 @@ void cohenSutherland(int x1, int y1, int x2, int y2)
 
     if (accept)
     {
-        std::cout << "Line segment after clipping: (" << x1 << ", " << y1 << ") to (" << x2 << ", " << y2 << ")" << std::endl;
+        cout << "Line segment after clipping: (" << x1 << ", " << y1 << ") to (" << x2 << ", " << y2 << ")" << std::endl;
         // store the clipped point
         cx1 = x1;
         cy1 = y1;
@@ -108,7 +109,7 @@ void cohenSutherland(int x1, int y1, int x2, int y2)
     }
     else
     {
-        std::cout << "Line segment is outside the clipping window and rejected." << std::endl;
+        cout << "Line segment is outside the clipping window and rejected." << std::endl;
     }
 }
 
@@ -117,14 +118,17 @@ int main()
 	int gd, gm;
 	detectgraph(&gd, &gm);
 	initgraph(&gd, &gm, "C:\\TURBO\\BGI");
+	setfillstyle(SOLID_FILL, WHITE);
+	floodfill(1, 1, WHITE);
     int x1, y1, x2, y2;
 
-    std::cout << "Enter the endpoints of the line segment (x1, y1) to (x2, y2): ";
-    std::cin >> x1 >> y1 >> x2 >> y2;
+    cout << "Enter the endpoints of the line segment (x1, y1) to (x2, y2): ";
+    cin >> x1 >> y1 >> x2 >> y2;
     
     // before
+    setcolor(BLACK);
     line(x1, y1, x2, y2);
-    delay(1000);
+    delay(500);
     
     // draw the window (not mandetory)
     line(X_MIN, Y_MIN, X_MIN, Y_MAX);
@@ -136,7 +140,7 @@ int main()
     cohenSutherland(x1, y1, x2, y2);
     
     // after
-    setcolor(RED);
+    setcolor(GREEN);
 	line(cx1, cy1, cx2, cy2);
 	
 	getch();
